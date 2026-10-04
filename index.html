@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>냥집사 모임</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">🐱</div>
+          <div>
+            <h1>냥집사 모임</h1>
+            <p>고양이를 사랑하는 사람들이 모이는 공간</p>
+          </div>
+        </div>
+
+        <div id="authBlock">
+          <div id="loggedOut" class="auth-state visible">
+            <input id="email" type="email" placeholder="이메일" />
+            <input id="password" type="password" placeholder="비밀번호" />
+            <button id="loginBtn">로그인</button>
+            <button id="signupBtn" class="secondary">회원가입</button>
+          </div>
+
+          <div id="loggedIn" class="auth-state">
+            <span id="userEmail">로그인됨</span>
+            <button id="logoutBtn">로그아웃</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="composer card">
+          <h2>새 글 작성</h2>
+          <textarea id="postContent" rows="5" placeholder="오늘의 고양이 이야기나 질문을 남겨보세요."></textarea>
+          <div class="composer-actions">
+            <button id="createPostBtn">게시글 올리기</button>
+          </div>
+        </section>
+
+        <section class="board card">
+          <div class="section-header">
+            <h2>커뮤니티</h2>
+          </div>
+          <div id="posts" class="posts"></div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
