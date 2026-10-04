@@ -9,41 +9,38 @@
   <body>
     <div class="app-shell">
       <header class="topbar">
-        <div class="brand-wrap">
-          <div class="brand-mark">🐱</div>
-          <div>
-            <h1>냥집사 모임</h1>
-            <p>고양이를 사랑하는 사람들이 모이는 공간</p>
-          </div>
+        <div>
+          <p class="eyebrow">고양이 커뮤니티</p>
+          <h1>🐱 냥집사 모임</h1>
         </div>
 
-        <div id="authBlock">
-          <div id="loggedOut" class="auth-state visible">
+        <div id="authPanel" class="auth-panel">
+          <div id="loggedOut" class="auth-box">
             <input id="email" type="email" placeholder="이메일" />
             <input id="password" type="password" placeholder="비밀번호" />
-            <button id="loginBtn">로그인</button>
             <button id="signupBtn" class="secondary">회원가입</button>
+            <button id="loginBtn">로그인</button>
           </div>
 
-          <div id="loggedIn" class="auth-state">
+          <div id="loggedIn" class="auth-box hidden">
             <span id="userEmail">로그인됨</span>
-            <button id="logoutBtn">로그아웃</button>
+            <button id="logoutBtn" class="danger">로그아웃</button>
           </div>
         </div>
       </header>
 
-      <main class="content">
+      <main class="layout">
         <section class="composer card">
           <h2>새 글 작성</h2>
-          <textarea id="postContent" rows="5" placeholder="오늘의 고양이 이야기나 질문을 남겨보세요."></textarea>
+          <textarea id="postContent" rows="5" placeholder="오늘의 냥집사 이야기, 추천, 질문, 사진 자랑을 남겨보세요."></textarea>
           <div class="composer-actions">
-            <button id="createPostBtn">게시글 올리기</button>
+            <button id="postBtn">글 등록</button>
           </div>
         </section>
 
-        <section class="board card">
-          <div class="section-header">
-            <h2>커뮤니티</h2>
+        <section class="feed card">
+          <div class="feed-header">
+            <h2>커뮤니티 피드</h2>
           </div>
           <div id="posts" class="posts"></div>
         </section>

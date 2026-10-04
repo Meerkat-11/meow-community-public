@@ -1,24 +1,27 @@
-:root {
-  --bg: #f5f3ee;
-  --card: #fffdf9;
-  --primary: #ff8a65;
-  --primary-dark: #f26d4a;
-  --accent: #ffd7a8;
-  --text: #2d2a26;
-  --muted: #7a7268;
-  --line: #ece2d6;
-  --shadow: rgba(39, 27, 18, 0.08);
-}
-
 * {
   box-sizing: border-box;
 }
 
-html, body {
+:root {
+  --bg: #f5f2eb;
+  --panel: #fffdf9;
+  --card: #ffffff;
+  --primary: #ff9f43;
+  --primary-dark: #f28a1d;
+  --accent: #6b4f3c;
+  --text: #2d1f1c;
+  --muted: #76615d;
+  --border: #eadfce;
+  --danger: #cc4f4f;
+  --danger-dark: #ad3c3c;
+  --shadow: 0 12px 28px rgba(95, 63, 47, 0.08);
+}
+
+body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(180deg, #fffaf4 0%, #f6f2ee 100%);
+  background: linear-gradient(180deg, #fdf8f2 0%, var(--bg) 100%);
   color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 button,
@@ -30,11 +33,11 @@ textarea {
 button {
   border: none;
   border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
   background: var(--primary);
   color: white;
-  padding: 10px 16px;
-  cursor: pointer;
-  font-weight: 700;
   transition: 0.15s ease;
 }
 
@@ -43,113 +46,108 @@ button:hover {
 }
 
 button.secondary {
-  background: #f2e8dc;
+  background: #f3e6d7;
   color: var(--text);
 }
 
 button.secondary:hover {
-  background: #e8dcc8;
+  background: #ead9c5;
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+button.danger:hover {
+  background: var(--danger-dark);
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #fff;
+  color: var(--text);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
 .app-shell {
-  max-width: 980px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 30px 18px 60px;
+  padding: 24px 16px 80px;
 }
 
 .topbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
-  padding: 18px 22px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px var(--shadow);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
 }
 
-.brand-wrap {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.brand-mark {
-  width: 54px;
-  height: 54px;
-  border-radius: 16px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, #ffd7a8 0%, #ffb38a 100%);
-  font-size: 1.8rem;
-}
-
-.brand-wrap h1 {
-  margin: 0;
-  font-size: clamp(1.5rem, 2vw, 2rem);
-}
-
-.brand-wrap p {
-  margin: 4px 0 0;
+.eyebrow {
+  margin: 0 0 6px;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-#authBlock {
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.auth-panel {
   display: flex;
   align-items: center;
 }
 
-.auth-state {
-  display: none;
+.auth-box {
+  display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-.auth-state.visible {
-  display: flex;
+.auth-box input {
+  min-width: 160px;
 }
 
-input,
-textarea {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 10px 12px;
-  background: #fff;
-  color: var(--text);
-}
-
-input {
-  min-width: 150px;
-}
-
-.content {
-  margin-top: 26px;
+.layout {
   display: grid;
-  gap: 22px;
+  gap: 24px;
+  margin-top: 24px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  box-shadow: 0 10px 26px var(--shadow);
-  padding: 22px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--shadow);
 }
 
 .composer h2,
-.board h2 {
-  margin: 0 0 14px;
-  font-size: 1.5rem;
-}
-
-textarea {
-  width: 100%;
-  resize: vertical;
-  min-height: 120px;
+.feed-header h2 {
+  margin-bottom: 16px;
 }
 
 .composer-actions {
@@ -164,10 +162,10 @@ textarea {
 }
 
 .post {
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 18px;
-  background: #fffdfb;
-  padding: 18px 18px 14px;
+  padding: 18px;
+  background: var(--card);
 }
 
 .post-header {
@@ -175,29 +173,27 @@ textarea {
   justify-content: space-between;
   gap: 12px;
   align-items: center;
-  margin-bottom: 10px;
-}
-
-.post-user {
-  font-weight: 700;
-}
-
-.post-time {
+  margin-bottom: 12px;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
-.post-body {
+.post-author {
+  font-weight: 700;
   color: var(--text);
-  line-height: 1.6;
+}
+
+.post-content {
+  line-height: 1.7;
   white-space: pre-wrap;
-  margin: 0 0 14px;
+  word-break: break-word;
+  margin-bottom: 14px;
 }
 
 .comment-box {
-  border-top: 1px solid var(--line);
-  padding-top: 12px;
+  border-top: 1px solid var(--border);
   margin-top: 12px;
+  padding-top: 14px;
 }
 
 .comment-list {
@@ -207,61 +203,47 @@ textarea {
 }
 
 .comment {
-  background: #f8f2eb;
+  background: #f9f4ee;
+  border: 1px solid #f0e4d6;
   border-radius: 12px;
   padding: 10px 12px;
-  line-height: 1.5;
+  font-size: 0.95rem;
 }
 
 .comment strong {
-  display: inline-block;
-  margin-right: 6px;
+  color: var(--text);
 }
 
 .comment-form {
   display: flex;
-  gap: 8px;
+  gap: 10px;
+  align-items: center;
 }
 
 .comment-form input {
   flex: 1;
 }
 
-.empty-state {
-  color: var(--muted);
-  text-align: center;
-  padding: 24px 12px;
+.hidden {
+  display: none !important;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 700px) {
   .topbar {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  #authBlock,
-  .auth-state {
+  .auth-box {
     width: 100%;
   }
 
-  .auth-state {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .auth-state.visible {
-    display: flex;
-  }
-
-  input,
+  .auth-box input,
   .comment-form {
     width: 100%;
   }
 
   .comment-form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
   }
 }
